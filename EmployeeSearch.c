@@ -28,7 +28,7 @@ PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int tableSize,
 PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int tableSize, double targetSalary){
 	PtrToConstEmployee endPtr = ptr + tableSize;
 	for(; ptr < endPtr; ptr++){
-		if(ptr->phone == targetSalary){
+		if(ptr->salary == targetSalary){
 			return (PtrToEmployee) ptr;
 		}
 	}

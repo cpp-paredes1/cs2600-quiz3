@@ -14,11 +14,7 @@
 
 int main(void){ 
 
-    //defined in employeeSearchOne.c 
-
-    PtrToEmployee searchEmployeeByNumber(const Employee table[], int sizeTable, long numberToFind); 
-
-    PtrToEmployee searchEmployeeByName(const Employee table[], int sizeTable, char * nameToFind); 
+    //defined in EmployeeSearch.c
 
     PtrToEmployee searchEmployeeByPhoneNumber(const Employee table[], int sizeTable, char * phoneToFind);
 
@@ -35,77 +31,43 @@ int main(void){
 
     PtrToEmployee matchPtr;  //Declaration 
 
-    matchPtr = searchEmployeeByNumber(EmployeeTable, EmployeeTableEntries, 1045); 
-
- 
-
-    //Example not found 
-
-    if (matchPtr != NULL) 
-
-        printf("Employee ID 1045 is in record %d\n", matchPtr - EmployeeTable); 
-
-    else 
-
-        printf("Employee ID is NOT found in the record\n"); 
-
- 
-
-    //Example found 
-
-    matchPtr = searchEmployeeByName(EmployeeTable, EmployeeTableEntries, "Tony Bobcat"); 
-
-    if (matchPtr != NULL) 
-
-        printf("Employee Tony Bobcat is in record %d\n", matchPtr - EmployeeTable); 
-
-    else 
-
-        printf("Employee Tony Bobcat is NOT found in the record\n"); 
-
-    
-
     // TESTING EmployeeSearch.c
     // Test 1
     // Expected: pointer to Employee Dorris Perl
     matchPtr = searchEmployeeByPhoneNumber(EmployeeTable, EmployeeTableEntries, "310-555-1215");
     if(matchPtr != NULL){
-        printf("Found Employee %s, with phone number %s.", matchPtr->name, matchPtr->phone);
+        printf("Test 1: Found Employee %s, with phone number %s.\n", matchPtr->name, matchPtr->phone);
     } else {
-        printf("Test 1: employee not found.");
+        printf("Test 1: Employee not found.\n");
     }
     
     // Test 2
     // Expected: NULL
     matchPtr = searchEmployeeByPhoneNumber(EmployeeTable, EmployeeTableEntries, "111-111-1201");
     if(matchPtr != NULL){
-        printf("Found Employee %s, with phone number %s.", matchPtr->name, matchPtr->phone);
+        printf("Found Employee %s, with phone number %s.\n", matchPtr->name, matchPtr->phone);
     } else {
-        printf("Test 2: employee not found.");
+        printf("Test 2: Employee not found.\n");
     }
 
     // Test 3
     // Expected: pointer to Employee Tammy Franklin
     matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, 4.50);
     if(matchPtr != NULL){
-        printf("Found Employee %s, with salary %s.", matchPtr->name, matchPtr->salary);
+        printf("Test 3: Found Employee %s, with salary %f.\n", matchPtr->name, matchPtr->salary);
     } else {
-        printf("Test 3: employee not found.");
+        printf("Test 3: Employee not found.\n");
     }
 
     // Test 4
     // Expected: NULL
     matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, 12.12);
     if(matchPtr != NULL){
-        printf("Found Employee %s, with salary %s.", matchPtr->name, matchPtr->salary);
+        printf("Test 4: Found Employee %s, with salary %f.\n", matchPtr->name, matchPtr->salary);
     } else {
-        printf("Test 3: employee not found.");
+        printf("Test 4: Employee not found.\n");
     }
     
-    
-    
-
-
     return EXIT_SUCCESS; 
 
 } 
