@@ -22,3 +22,15 @@ PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int tableSize,
 	// return nothing if not fount
 	return NULL;
 }
+// function details
+// same as above
+// last arg is a double which represents the target salary
+PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int tableSize, double targetSalary){
+	PtrToConstEmployee endPtr = ptr + tableSize;
+	for(; ptr < endPtr; ptr++){
+		if(ptr->phone == targetSalary){
+			return (PtrToEmployee) ptr;
+		}
+	}
+	return NULL;
+}
