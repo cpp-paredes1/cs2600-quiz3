@@ -28,7 +28,11 @@ void numGuess(int target){
 		valid = scanf("%i", &userguess);
 		// if input was not an int, exit
 		if(valid == 0){
-			guessed = true;
+			char key;
+			scanf("%c", &key);
+			if(key == 'q'){
+				guessed = true;
+			}
 		} else {
 			if(userguess == target){
 				printf("You got the right number!\n");
