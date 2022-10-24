@@ -25,6 +25,7 @@ void numGuess(int target){
 
 		printf("Input a guess: ");
 		// valid = 1 if input is an int. valid = 0 if it is not
+
 		valid = scanf("%i", &userguess);
 		// if input was not an int, exit
 		if(valid == 0){
@@ -70,9 +71,14 @@ int main(){
 				numGuess((rand()%maxNum)+1);
 				break;
 			case 2:
-				printf("What would you like the new max to be: ");
+				printf("What would you like the new max to be (1 - 2147483647): ");
 				scanf("%i", &maxNum);
 				scanf("%c", &newLineHolder);
+				while(maxNum < 0){
+					printf("Invalid number. Input a number between (1 - 2147483647): ");
+					scanf("%i", &maxNum);
+					scanf("%c", &newLineHolder);
+				}
 				break;
 			case 3:
 				gameFinished = true;
